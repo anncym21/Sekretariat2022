@@ -1,6 +1,6 @@
 ﻿namespace Sekretariat
 {
-    partial class Form1
+    partial class zdjecia_view
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(zdjecia_view));
             this.uzytkownik_tekst = new System.Windows.Forms.Label();
             this.haslo_tekst = new System.Windows.Forms.Label();
             this.weryfikacja_tekst = new System.Windows.Forms.Label();
@@ -38,7 +39,8 @@
             this.weryfikacja = new System.Windows.Forms.TextBox();
             this.zaloguj = new System.Windows.Forms.Button();
             this.losuj = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.haslo_list = new System.Windows.Forms.ImageList(this.components);
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // uzytkownik_tekst
@@ -123,17 +125,34 @@
             this.losuj.TabIndex = 8;
             this.losuj.Text = "losuj nowy";
             // 
-            // imageList1
+            // haslo_list
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.haslo_list.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("haslo_list.ImageStream")));
+            this.haslo_list.TransparentColor = System.Drawing.Color.Transparent;
+            this.haslo_list.Images.SetKeyName(0, "1.png");
+            this.haslo_list.Images.SetKeyName(1, "2.png");
+            this.haslo_list.Images.SetKeyName(2, "3.png");
+            this.haslo_list.Images.SetKeyName(3, "4.png");
+            this.haslo_list.Images.SetKeyName(4, "5.png");
+            this.haslo_list.Images.SetKeyName(5, "6.png");
+            this.haslo_list.Images.SetKeyName(6, "7.png");
+            this.haslo_list.Images.SetKeyName(7, "logo.ico");
             // 
-            // Form1
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(96, 265);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 32);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // zdjecia_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 497);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.losuj);
             this.Controls.Add(this.zaloguj);
             this.Controls.Add(this.weryfikacja);
@@ -143,7 +162,7 @@
             this.Controls.Add(this.weryfikacja_tekst);
             this.Controls.Add(this.haslo_tekst);
             this.Controls.Add(this.uzytkownik_tekst);
-            this.Name = "Form1";
+            this.Name = "zdjecia_view";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,7 +180,8 @@
         private System.Windows.Forms.TextBox weryfikacja;
         private System.Windows.Forms.Button zaloguj;
         private System.Windows.Forms.Label losuj;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList haslo_list;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

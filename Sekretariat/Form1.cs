@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sekretariat
 {
-    public partial class Form1 : Form
+    public partial class zdjecia_view : Form
     {
-        public Form1()
+        public zdjecia_view()
         {
             InitializeComponent();
         }
