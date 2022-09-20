@@ -111,6 +111,7 @@
             this.zaloguj.TabIndex = 7;
             this.zaloguj.Text = "Zaloguj";
             this.zaloguj.UseVisualStyleBackColor = true;
+            this.zaloguj.Click += new System.EventHandler(this.zaloguj_Click);
             // 
             // losuj
             // 

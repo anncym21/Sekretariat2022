@@ -21,5 +21,24 @@ namespace Sekretariat
         {
 
         }
+
+        private void zaloguj_Click(object sender, EventArgs e)
+        {
+            if(login.Text != "admin"&&haslo.Text != "Qwerty1@34")
+            {
+                MessageBox.Show("Nie poprawny login i haslo");
+            }else if(login.Text != "admin" && haslo.Text == "Qwerty1@34")
+            {
+                MessageBox.Show("Nie poprawny login");
+            }
+            else if(login.Text == "admin" && haslo.Text != "Qwerty1@34")
+            {
+                MessageBox.Show("Nie poprawne haslo");
+            }
+            else
+            {
+                MessageBox.Show("Poprawne dane");
+            }
+        }
     }
 }
