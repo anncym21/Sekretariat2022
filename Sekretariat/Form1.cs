@@ -53,6 +53,7 @@ namespace Sekretariat
         private void haslo_TextChanged(object sender, EventArgs e)
         {
             haslo.UseSystemPasswordChar = true;
+
         }
     }
 }
