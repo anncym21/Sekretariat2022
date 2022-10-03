@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Sekretariat
 {
+
     public partial class zdjecia_view : Form
     {
+
         public zdjecia_view()
         {
             InitializeComponent();
@@ -38,7 +41,18 @@ namespace Sekretariat
             else
             {
                 MessageBox.Show("Poprawne dane");
+
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void haslo_TextChanged(object sender, EventArgs e)
+        {
+            haslo.UseSystemPasswordChar = true;
         }
     }
 }
