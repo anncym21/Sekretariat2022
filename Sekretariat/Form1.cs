@@ -70,5 +70,10 @@ namespace Sekretariat
             numer_zdjecia = random.Next(0, 6);
             pictureBox1.Image = Image.FromFile(@"../../"+numer_zdjecia+".png");
         }
+
+        private void zdjecia_view_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,90 +29,189 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.wyszukaj = new System.Windows.Forms.TabPage();
+            this.dodaj = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dane = new System.Windows.Forms.ComboBox();
+            this.kryteria_1 = new System.Windows.Forms.ComboBox();
+            this.kryteria_tekst = new System.Windows.Forms.TextBox();
+            this.wynik_textbox = new System.Windows.Forms.TextBox();
+            this.szukaj = new System.Windows.Forms.Button();
+            this.imie = new System.Windows.Forms.Label();
+            this.nazwisko = new System.Windows.Forms.Label();
+            this.klasa = new System.Windows.Forms.Label();
+            this.textBox_imie = new System.Windows.Forms.TextBox();
+            this.textBox_nazwisko = new System.Windows.Forms.TextBox();
+            this.textBox_klasa = new System.Windows.Forms.TextBox();
+            this.button_dodaj = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.wyszukaj.SuspendLayout();
+            this.dodaj.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.wyszukaj);
+            this.tabControl1.Controls.Add(this.dodaj);
             this.tabControl1.Location = new System.Drawing.Point(3, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(596, 365);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // wyszukaj
             // 
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(588, 339);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.wyszukaj.Controls.Add(this.szukaj);
+            this.wyszukaj.Controls.Add(this.wynik_textbox);
+            this.wyszukaj.Controls.Add(this.kryteria_tekst);
+            this.wyszukaj.Controls.Add(this.kryteria_1);
+            this.wyszukaj.Controls.Add(this.dane);
+            this.wyszukaj.Controls.Add(this.label1);
+            this.wyszukaj.Location = new System.Drawing.Point(4, 22);
+            this.wyszukaj.Name = "wyszukaj";
+            this.wyszukaj.Padding = new System.Windows.Forms.Padding(3);
+            this.wyszukaj.Size = new System.Drawing.Size(588, 339);
+            this.wyszukaj.TabIndex = 0;
+            this.wyszukaj.Text = "wyszukaj ucznia/uczniów";
+            this.wyszukaj.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // dodaj
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(588, 339);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.dodaj.Controls.Add(this.button_dodaj);
+            this.dodaj.Controls.Add(this.textBox_klasa);
+            this.dodaj.Controls.Add(this.textBox_nazwisko);
+            this.dodaj.Controls.Add(this.textBox_imie);
+            this.dodaj.Controls.Add(this.klasa);
+            this.dodaj.Controls.Add(this.nazwisko);
+            this.dodaj.Controls.Add(this.imie);
+            this.dodaj.Location = new System.Drawing.Point(4, 22);
+            this.dodaj.Name = "dodaj";
+            this.dodaj.Padding = new System.Windows.Forms.Padding(3);
+            this.dodaj.Size = new System.Drawing.Size(588, 339);
+            this.dodaj.TabIndex = 1;
+            this.dodaj.Text = "Dodaj ucznia";
+            this.dodaj.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(35, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(304, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Wczytaj kryteria wyszukiwania";
             // 
-            // comboBox1
+            // dane
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(38, 77);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.dane.FormattingEnabled = true;
+            this.dane.Items.AddRange(new object[] {
+            "Imie",
+            "Nazwisko",
+            "Klasa"});
+            this.dane.Location = new System.Drawing.Point(38, 77);
+            this.dane.Name = "dane";
+            this.dane.Size = new System.Drawing.Size(121, 21);
+            this.dane.TabIndex = 1;
             // 
-            // comboBox2
+            // kryteria_1
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(214, 77);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 2;
+            this.kryteria_1.FormattingEnabled = true;
+            this.kryteria_1.Items.AddRange(new object[] {
+            "równe",
+            "zawiera",
+            "rozpoczyna się od"});
+            this.kryteria_1.Location = new System.Drawing.Point(191, 77);
+            this.kryteria_1.Name = "kryteria_1";
+            this.kryteria_1.Size = new System.Drawing.Size(121, 21);
+            this.kryteria_1.TabIndex = 2;
             // 
-            // textBox1
+            // kryteria_tekst
             // 
-            this.textBox1.Location = new System.Drawing.Point(369, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 3;
+            this.kryteria_tekst.Location = new System.Drawing.Point(339, 77);
+            this.kryteria_tekst.Name = "kryteria_tekst";
+            this.kryteria_tekst.Size = new System.Drawing.Size(160, 20);
+            this.kryteria_tekst.TabIndex = 3;
             // 
-            // textBox2
+            // wynik_textbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(38, 147);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.wynik_textbox.Location = new System.Drawing.Point(6, 157);
+            this.wynik_textbox.Multiline = true;
+            this.wynik_textbox.Name = "wynik_textbox";
+            this.wynik_textbox.Size = new System.Drawing.Size(575, 174);
+            this.wynik_textbox.TabIndex = 4;
+            // 
+            // szukaj
+            // 
+            this.szukaj.Location = new System.Drawing.Point(358, 124);
+            this.szukaj.Name = "szukaj";
+            this.szukaj.Size = new System.Drawing.Size(126, 27);
+            this.szukaj.TabIndex = 5;
+            this.szukaj.Text = "Szukaj";
+            this.szukaj.UseVisualStyleBackColor = true;
+            this.szukaj.Click += new System.EventHandler(this.szukaj_Click);
+            // 
+            // imie
+            // 
+            this.imie.AutoSize = true;
+            this.imie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.imie.Location = new System.Drawing.Point(51, 42);
+            this.imie.Name = "imie";
+            this.imie.Size = new System.Drawing.Size(52, 25);
+            this.imie.TabIndex = 0;
+            this.imie.Text = "Imię";
+            // 
+            // nazwisko
+            // 
+            this.nazwisko.AutoSize = true;
+            this.nazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nazwisko.Location = new System.Drawing.Point(49, 90);
+            this.nazwisko.Name = "nazwisko";
+            this.nazwisko.Size = new System.Drawing.Size(104, 25);
+            this.nazwisko.TabIndex = 1;
+            this.nazwisko.Text = "Nazwisko";
+            // 
+            // klasa
+            // 
+            this.klasa.AutoSize = true;
+            this.klasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.klasa.Location = new System.Drawing.Point(51, 136);
+            this.klasa.Name = "klasa";
+            this.klasa.Size = new System.Drawing.Size(67, 25);
+            this.klasa.TabIndex = 2;
+            this.klasa.Text = "Klasa";
+            // 
+            // textBox_imie
+            // 
+            this.textBox_imie.Location = new System.Drawing.Point(244, 46);
+            this.textBox_imie.Name = "textBox_imie";
+            this.textBox_imie.Size = new System.Drawing.Size(200, 20);
+            this.textBox_imie.TabIndex = 3;
+            // 
+            // textBox_nazwisko
+            // 
+            this.textBox_nazwisko.Location = new System.Drawing.Point(244, 90);
+            this.textBox_nazwisko.Name = "textBox_nazwisko";
+            this.textBox_nazwisko.Size = new System.Drawing.Size(200, 20);
+            this.textBox_nazwisko.TabIndex = 4;
+            // 
+            // textBox_klasa
+            // 
+            this.textBox_klasa.Location = new System.Drawing.Point(244, 136);
+            this.textBox_klasa.Name = "textBox_klasa";
+            this.textBox_klasa.Size = new System.Drawing.Size(200, 20);
+            this.textBox_klasa.TabIndex = 5;
+            // 
+            // button_dodaj
+            // 
+            this.button_dodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_dodaj.Location = new System.Drawing.Point(382, 188);
+            this.button_dodaj.Name = "button_dodaj";
+            this.button_dodaj.Size = new System.Drawing.Size(110, 37);
+            this.button_dodaj.TabIndex = 6;
+            this.button_dodaj.Text = "Dodaj";
+            this.button_dodaj.UseVisualStyleBackColor = true;
+            this.button_dodaj.Click += new System.EventHandler(this.button_dodaj_Click);
             // 
             // wyszukaj_ucznia
             // 
@@ -124,8 +223,10 @@
             this.Name = "wyszukaj_ucznia";
             this.Text = "wyszukaj_ucznia";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.wyszukaj.ResumeLayout(false);
+            this.wyszukaj.PerformLayout();
+            this.dodaj.ResumeLayout(false);
+            this.dodaj.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -133,12 +234,20 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage wyszukaj;
+        private System.Windows.Forms.TextBox wynik_textbox;
+        private System.Windows.Forms.TextBox kryteria_tekst;
+        private System.Windows.Forms.ComboBox kryteria_1;
+        private System.Windows.Forms.ComboBox dane;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage dodaj;
+        private System.Windows.Forms.Button szukaj;
+        private System.Windows.Forms.Button button_dodaj;
+        private System.Windows.Forms.TextBox textBox_klasa;
+        private System.Windows.Forms.TextBox textBox_nazwisko;
+        private System.Windows.Forms.TextBox textBox_imie;
+        private System.Windows.Forms.Label klasa;
+        private System.Windows.Forms.Label nazwisko;
+        private System.Windows.Forms.Label imie;
     }
 }
