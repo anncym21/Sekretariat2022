@@ -45,7 +45,9 @@ namespace Sekretariat
             }
             if(login.Text == "admin" && haslo.Text == "Qwerty1@34" && weryfikacja.Text == obrazki[numer_zdjecia -1])
             {
-                MessageBox.Show("Poprawne dane");
+                wyszukaj_ucznia wyszukaj_ucznia = new wyszukaj_ucznia();
+                wyszukaj_ucznia.ShowDialog();   
+                this.Close();
                
 
             }
