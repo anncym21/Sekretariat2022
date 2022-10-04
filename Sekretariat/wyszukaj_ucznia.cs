@@ -14,7 +14,7 @@ namespace Sekretariat
 {
     public partial class wyszukaj_ucznia : Form
     {
-        string fileName = "dane.txt";
+        string fileName = @".\dane.txt";
         int id = 0;
         public wyszukaj_ucznia()
         {
@@ -42,21 +42,81 @@ namespace Sekretariat
 
 
             // To read a text file line by line
-            if (File.Exists(fileName))
-            {
+            
+            
                 using (StreamReader fs = File.OpenText(fileName))
                 {
                     string wynik = "";
-                    while (fs.ReadLine()!= null)
+                    string linia = "";
+                string[] dane_linia;
+                    while (( linia = fs.ReadLine())!= null)
                     {
-                        var linia = fs.ReadLine();
-                        wynik = wynik + linia+ "\n";
+                         dane_linia = linia.Split(' ');
+                  
+                    if(dane.Text != "" && kryteria_1.Text != "" && kryteria_tekst.Text != "")
+                    {
+                        if(dane.Text == "Imie")
+                        {
+                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[1])
+                            {
+                                wynik = wynik + linia+ "\n";
+                            }
+                            if (kryteria_1.Text == "zawiera" && dane_linia[1].Contains(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[1].StartsWith(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                        }
+                        if (dane.Text == "Nazwisko")
+                        {
+                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[2])
+                            {
+                                wynik = wynik + linia+"\n";
+                            }
+                            if (kryteria_1.Text == "zawiera" && dane_linia[2].Contains(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[2].StartsWith(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                        }
+                        if (dane.Text == "Klasa")
+                        {
+                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[3])
+                            {
+                                wynik = wynik + linia+ "\n";
+                            }
+                            if (kryteria_1.Text == "zawiera" && dane_linia[3].Contains(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[3].StartsWith(kryteria_tekst.Text))
+                            {
+                                wynik = wynik + linia + "\n";
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        wynik = wynik + linia + "\n";
+                    }
                         
                     }
-                    wynik_textbox.Text = wynik;
+                    richTextBox_wynik.Text = wynik;
                 }
 
-            }
+            
+        }
+
+        private void wyszukaj_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
