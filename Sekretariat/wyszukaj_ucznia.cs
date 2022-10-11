@@ -14,6 +14,7 @@ namespace Sekretariat
 {
     public partial class wyszukaj_ucznia : Form
     {
+        SqlConnection con;
         string fileName = @".\dane.txt";
         int id = 0;
         string baza = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -25,10 +26,10 @@ namespace Sekretariat
             {
                 File.Delete(fileName);
             }
-           SqlConnection con = new SqlConnection(baza);
-           SqlCommand cmd = new SqlCommand(query, con);
-           con.Open();
-           MessageBox.Show(cmd.ExecuteScalar().ToString());
+            con = new SqlConnection(baza);
+            con.Open();
+            
+         
         }
 
         private void button_dodaj_Click(object sender, EventArgs e)
@@ -48,76 +49,86 @@ namespace Sekretariat
 
 
             // To read a text file line by line
-            
-            
-                using (StreamReader fs = File.OpenText(fileName))
+
+
+            /*   using (StreamReader fs = File.OpenText(fileName))
+               {
+                   string wynik = "";
+                   string linia = "";
+               string[] dane_linia;
+                   while (( linia = fs.ReadLine())!= null)
+                   {
+                        dane_linia = linia.Split(' ');
+
+                   if(dane.Text != "" && kryteria_1.Text != "" && kryteria_tekst.Text != "")
+                   {
+                       if(dane.Text == "Imie")
+                       {
+                           if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[1])
+                           {
+                               wynik = wynik + linia+ "\n";
+                           }
+                           if (kryteria_1.Text == "zawiera" && dane_linia[1].Contains(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                           if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[1].StartsWith(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                       }
+                       if (dane.Text == "Nazwisko")
+                       {
+                           if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[2])
+                           {
+                               wynik = wynik + linia+"\n";
+                           }
+                           if (kryteria_1.Text == "zawiera" && dane_linia[2].Contains(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                           if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[2].StartsWith(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                       }
+                       if (dane.Text == "Klasa")
+                       {
+                           if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[3])
+                           {
+                               wynik = wynik + linia+ "\n";
+                           }
+                           if (kryteria_1.Text == "zawiera" && dane_linia[3].Contains(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                           if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[3].StartsWith(kryteria_tekst.Text))
+                           {
+                               wynik = wynik + linia + "\n";
+                           }
+                       }
+
+                   }
+                   else
+                   {
+                       wynik = wynik + linia + "\n";
+                   }
+
+                   }
+                   richTextBox_wynik.Text = wynik;
+               }
+            */
+            SqlCommand cmd = new SqlCommand(query, con);
+            using (SqlCommand command = cmd)
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    string wynik = "";
-                    string linia = "";
-                string[] dane_linia;
-                    while (( linia = fs.ReadLine())!= null)
-                    {
-                         dane_linia = linia.Split(' ');
-                  
-                    if(dane.Text != "" && kryteria_1.Text != "" && kryteria_tekst.Text != "")
-                    {
-                        if(dane.Text == "Imie")
-                        {
-                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[1])
-                            {
-                                wynik = wynik + linia+ "\n";
-                            }
-                            if (kryteria_1.Text == "zawiera" && dane_linia[1].Contains(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[1].StartsWith(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                        }
-                        if (dane.Text == "Nazwisko")
-                        {
-                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[2])
-                            {
-                                wynik = wynik + linia+"\n";
-                            }
-                            if (kryteria_1.Text == "zawiera" && dane_linia[2].Contains(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[2].StartsWith(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                        }
-                        if (dane.Text == "Klasa")
-                        {
-                            if (kryteria_1.Text == "równe" && kryteria_tekst.Text == dane_linia[3])
-                            {
-                                wynik = wynik + linia+ "\n";
-                            }
-                            if (kryteria_1.Text == "zawiera" && dane_linia[3].Contains(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                            if (kryteria_1.Text == "rozpoczyna sie od" && dane_linia[3].StartsWith(kryteria_tekst.Text))
-                            {
-                                wynik = wynik + linia + "\n";
-                            }
-                        }
-
-                    }
-                    else
-                    {
-                        wynik = wynik + linia + "\n";
-                    }
-                        
-                    }
-                    richTextBox_wynik.Text = wynik;
+                    richTextBox_wynik.Text += reader.GetString(0)+" "+reader.GetString(1)+" "+reader.GetString(2)+" "+reader.GetString(3);
+                    
                 }
+            }
 
-            
         }
 
         private void wyszukaj_Click(object sender, EventArgs e)
