@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.wyszukaj = new System.Windows.Forms.TabPage();
+            this.richTextBox_wynik = new System.Windows.Forms.RichTextBox();
             this.szukaj = new System.Windows.Forms.Button();
             this.kryteria_tekst = new System.Windows.Forms.TextBox();
             this.kryteria_1 = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.klasa = new System.Windows.Forms.Label();
             this.nazwisko = new System.Windows.Forms.Label();
             this.imie = new System.Windows.Forms.Label();
-            this.richTextBox_wynik = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.wyszukaj.SuspendLayout();
             this.dodaj.SuspendLayout();
@@ -75,6 +75,15 @@
             this.wyszukaj.Text = "wyszukaj ucznia/uczniów";
             this.wyszukaj.UseVisualStyleBackColor = true;
             this.wyszukaj.Click += new System.EventHandler(this.wyszukaj_Click);
+            // 
+            // richTextBox_wynik
+            // 
+            this.richTextBox_wynik.Location = new System.Drawing.Point(3, 152);
+            this.richTextBox_wynik.Name = "richTextBox_wynik";
+            this.richTextBox_wynik.Size = new System.Drawing.Size(578, 181);
+            this.richTextBox_wynik.TabIndex = 6;
+            this.richTextBox_wynik.Text = "";
+            this.richTextBox_wynik.TextChanged += new System.EventHandler(this.richTextBox_wynik_TextChanged);
             // 
             // szukaj
             // 
@@ -205,14 +214,6 @@
             this.imie.Size = new System.Drawing.Size(52, 25);
             this.imie.TabIndex = 0;
             this.imie.Text = "Imię";
-            // 
-            // richTextBox_wynik
-            // 
-            this.richTextBox_wynik.Location = new System.Drawing.Point(3, 152);
-            this.richTextBox_wynik.Name = "richTextBox_wynik";
-            this.richTextBox_wynik.Size = new System.Drawing.Size(578, 181);
-            this.richTextBox_wynik.TabIndex = 6;
-            this.richTextBox_wynik.Text = "";
             // 
             // wyszukaj_ucznia
             // 

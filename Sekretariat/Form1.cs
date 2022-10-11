@@ -19,7 +19,7 @@ namespace Sekretariat
         {
             InitializeComponent();
             Random random = new Random();
-            numer_zdjecia = random.Next(0, 6);
+            numer_zdjecia = random.Next(1, 7);
             pictureBox1.Image = Image.FromFile(@"../../" + numer_zdjecia + ".png");
         }
 
@@ -67,7 +67,7 @@ namespace Sekretariat
         private void label_losuj_Click(object sender, EventArgs e)
         {
             Random random = new Random();
-            numer_zdjecia = random.Next(0, 6);
+            numer_zdjecia = random.Next(1, 7);
             pictureBox1.Image = Image.FromFile(@"../../"+numer_zdjecia+".png");
         }
 

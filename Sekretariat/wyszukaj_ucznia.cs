@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 
 namespace Sekretariat
 {
@@ -16,6 +16,7 @@ namespace Sekretariat
     {
         string fileName = @".\dane.txt";
         int id = 0;
+        string dane = "(localdb);database=Database1";
         public wyszukaj_ucznia()
         {
             InitializeComponent();
@@ -115,6 +116,11 @@ namespace Sekretariat
         }
 
         private void wyszukaj_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox_wynik_TextChanged(object sender, EventArgs e)
         {
 
         }
