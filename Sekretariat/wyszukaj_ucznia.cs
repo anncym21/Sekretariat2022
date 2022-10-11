@@ -16,7 +16,8 @@ namespace Sekretariat
     {
         string fileName = @".\dane.txt";
         int id = 0;
-        string dane = "(localdb);database=Database1";
+        string baza = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string query = "select * from dane.dbo.uczniowie";
         public wyszukaj_ucznia()
         {
             InitializeComponent();
@@ -24,6 +25,10 @@ namespace Sekretariat
             {
                 File.Delete(fileName);
             }
+           SqlConnection con = new SqlConnection(baza);
+           SqlCommand cmd = new SqlCommand(query, con);
+           con.Open();
+           MessageBox.Show(cmd.ExecuteScalar().ToString());
         }
 
         private void button_dodaj_Click(object sender, EventArgs e)
