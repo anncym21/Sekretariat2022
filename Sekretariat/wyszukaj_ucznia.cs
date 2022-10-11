@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Sekretariat
 {
@@ -34,8 +35,9 @@ namespace Sekretariat
 
         private void button_dodaj_Click(object sender, EventArgs e)
         {
-            
-
+            string insert = "insert into uczniowie( imie, nazwisko, klasa) values ('"+ textBox_imie.Text + "', '"+textBox_nazwisko.Text+"',"+textBox_klasa.Text+" );";
+            SqlCommand insert_cmd = new SqlCommand(insert, con);
+            insert_cmd.ExecuteScalar();
             // Create a new file     
             using (StreamWriter fs = File.AppendText(fileName))
             {
@@ -118,10 +120,60 @@ namespace Sekretariat
                    richTextBox_wynik.Text = wynik;
                }
             */
+            string query = "";
+            if (dane.Text == "Klasa")
+            {
+                if (kryteria_1.Text == "równe" )
+                {
+                    query = "select * from dane.dbo.uczniowie where klasa =  ";
+                }
+                if (kryteria_1.Text == "zawiera" )
+                {
+                    query = "select * from dane.dbo.uczniowie where klasa like '% "+ kryteria_tekst.Text +" %' ";
+                }
+                if (kryteria_1.Text == "rozpoczyna sie od" )
+                {
+                    query = "select * from dane.dbo.uczniowie where klasa like '" + kryteria_tekst.Text + "%' ";
+                }
+            }
+            if (dane.Text == "Nazwisko")
+            {
+                if (kryteria_1.Text == "równe")
+                {
+                    query = "select * from dane.dbo.uczniowie where nazwisko =  ";
+                }
+                if (kryteria_1.Text == "zawiera")
+                {
+                    query = "select * from dane.dbo.uczniowie where nazwisko like '% " + kryteria_tekst.Text + " %' ";
+                }
+                if (kryteria_1.Text == "rozpoczyna sie od")
+                {
+                    query = "select * from dane.dbo.uczniowie where nazwisko like '" + kryteria_tekst.Text + "%' ";
+                }
+            }
+            if (dane.Text == "Imie")
+            {
+                if (kryteria_1.Text == "równe")
+                {
+                    query = "select * from dane.dbo.uczniowie where imie =  ";
+                }
+                if (kryteria_1.Text == "zawiera")
+                {
+                    query = "select * from dane.dbo.uczniowie where imie like '% " + kryteria_tekst.Text + " %' ";
+                }
+                if (kryteria_1.Text == "rozpoczyna sie od")
+                {
+                    query = "select * from dane.dbo.uczniowie where imie like '" + kryteria_tekst.Text + "%' ";
+                }
+            }
+
+
             SqlCommand cmd = new SqlCommand(query, con);
+
             using (SqlCommand command = cmd)
             {
                 SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
                     richTextBox_wynik.Text += reader.GetString(0)+" "+reader.GetString(1)+" "+reader.GetString(2)+" "+reader.GetString(3);
