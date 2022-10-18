@@ -35,7 +35,8 @@ namespace Sekretariat
 
         private void button_dodaj_Click(object sender, EventArgs e)
         {
-            string insert = "insert into uczniowie( imie, nazwisko, klasa) values ('"+ textBox_imie.Text + "', '"+textBox_nazwisko.Text+"',"+textBox_klasa.Text+" );";
+            string insert = "insert into dane.dbo.uczniowie( imie, nazwisko, klasa) values ('"+ textBox_imie.Text + "', '"+textBox_nazwisko.Text+"','"+textBox_klasa.Text+"' );";
+            MessageBox.Show(insert);
             SqlCommand insert_cmd = new SqlCommand(insert, con);
             insert_cmd.ExecuteScalar();
             // Create a new file     
