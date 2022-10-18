@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.LinkLabel;
+using System.Data.SqlTypes;
 
 namespace Sekretariat
 {
@@ -36,7 +37,7 @@ namespace Sekretariat
         private void button_dodaj_Click(object sender, EventArgs e)
         {
             string insert = "insert into dane.dbo.uczniowie( imie, nazwisko, klasa) values ('"+ textBox_imie.Text + "', '"+textBox_nazwisko.Text+"','"+textBox_klasa.Text+"' );";
-            MessageBox.Show(insert);
+            
             SqlCommand insert_cmd = new SqlCommand(insert, con);
             insert_cmd.ExecuteScalar();
             // Create a new file     
@@ -170,17 +171,19 @@ namespace Sekretariat
 
 
             SqlCommand cmd = new SqlCommand(query, con);
-
-            using (SqlCommand command = cmd)
+           
+            query = "select * from dane.dbo.uczniowie";
+            cmd = new SqlCommand(query, con);
+            SqlDataReader sqlReader = cmd.ExecuteReader();
+            richTextBox_wynik.Text = "";
+            while (sqlReader.Read())
             {
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    richTextBox_wynik.Text += reader.GetString(0)+" "+reader.GetString(1)+" "+reader.GetString(2)+" "+reader.GetString(3);
-                    
-                }
+                //MessageBox.Show(sqlReader.GetValue(0) + " - " + sqlReader.GetValue(1) + " - " + sqlReader.GetValue(2));
+                richTextBox_wynik.Text += sqlReader.GetValue(1) + " " + sqlReader.GetValue(2) + " " + sqlReader.GetValue(3) + "\n";
             }
+            sqlReader.Close();
+            cmd.Dispose();
+            
 
         }
 
