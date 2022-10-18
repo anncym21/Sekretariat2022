@@ -101,6 +101,7 @@
             this.kryteria_tekst.Name = "kryteria_tekst";
             this.kryteria_tekst.Size = new System.Drawing.Size(160, 20);
             this.kryteria_tekst.TabIndex = 3;
+            this.kryteria_tekst.TextChanged += new System.EventHandler(this.kryteria_tekst_TextChanged);
             // 
             // kryteria_1
             // 

@@ -192,5 +192,10 @@ namespace Sekretariat
         {
 
         }
+
+        private void kryteria_tekst_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
