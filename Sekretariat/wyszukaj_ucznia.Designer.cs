@@ -109,7 +109,7 @@
             this.kryteria_1.Items.AddRange(new object[] {
             "równe",
             "zawiera",
-            "rozpoczyna się od"});
+            "rozpoczyna sie od"});
             this.kryteria_1.Location = new System.Drawing.Point(191, 77);
             this.kryteria_1.Name = "kryteria_1";
             this.kryteria_1.Size = new System.Drawing.Size(121, 21);

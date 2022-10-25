@@ -19,7 +19,7 @@ namespace Sekretariat
         SqlConnection con;
         string fileName = @".\dane.txt";
         int id = 0;
-        string baza = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string baza = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=dane;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         string query = "select * from dane.dbo.uczniowie";
         public wyszukaj_ucznia()
         {
@@ -127,13 +127,13 @@ namespace Sekretariat
             {
                 if (kryteria_1.Text == "równe" )
                 {
-                    query = "select * from dane.dbo.uczniowie where klasa =  ";
+                    query = "select * from dane.dbo.uczniowie where klasa =  '"+ kryteria_tekst.Text+"'";
                 }
                 if (kryteria_1.Text == "zawiera" )
                 {
-                    query = "select * from dane.dbo.uczniowie where klasa like '% "+ kryteria_tekst.Text +" %' ";
+                    query = "select * from dane.dbo.uczniowie where klasa like '%"+ kryteria_tekst.Text +"%' ";
                 }
-                if (kryteria_1.Text == "rozpoczyna sie od" )
+                if (kryteria_1.Text == "rorozpoczyna sie od")
                 {
                     query = "select * from dane.dbo.uczniowie where klasa like '" + kryteria_tekst.Text + "%' ";
                 }
@@ -142,11 +142,11 @@ namespace Sekretariat
             {
                 if (kryteria_1.Text == "równe")
                 {
-                    query = "select * from dane.dbo.uczniowie where nazwisko =  ";
+                    query = "select * from dane.dbo.uczniowie where nazwisko =  '"+ kryteria_tekst.Text+"'";
                 }
                 if (kryteria_1.Text == "zawiera")
                 {
-                    query = "select * from dane.dbo.uczniowie where nazwisko like '% " + kryteria_tekst.Text + " %' ";
+                    query = "select * from dane.dbo.uczniowie where nazwisko like '%" + kryteria_tekst.Text + "%' ";
                 }
                 if (kryteria_1.Text == "rozpoczyna sie od")
                 {
@@ -157,22 +157,22 @@ namespace Sekretariat
             {
                 if (kryteria_1.Text == "równe")
                 {
-                    query = "select * from dane.dbo.uczniowie where imie =  ";
+                    query = "select * from dane.dbo.uczniowie where imie = '"+ kryteria_tekst.Text+"' ";
                 }
                 if (kryteria_1.Text == "zawiera")
                 {
-                    query = "select * from dane.dbo.uczniowie where imie like '% " + kryteria_tekst.Text + " %' ";
+                    query = "select * from dane.dbo.uczniowie where imie like '%" + kryteria_tekst.Text + "%' ";
                 }
                 if (kryteria_1.Text == "rozpoczyna sie od")
                 {
                     query = "select * from dane.dbo.uczniowie where imie like '" + kryteria_tekst.Text + "%' ";
                 }
             }
-
+            
 
             SqlCommand cmd = new SqlCommand(query, con);
            
-            query = "select * from dane.dbo.uczniowie";
+           
             cmd = new SqlCommand(query, con);
             SqlDataReader sqlReader = cmd.ExecuteReader();
             richTextBox_wynik.Text = "";
